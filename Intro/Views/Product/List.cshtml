@@ -1,2 +1,31 @@
-﻿
-    <h1>Product/List</h1>
+﻿@model List<Product>
+<h1>Product/List</h1>
+
+<div class="row">
+    @foreach (Product urun in Model)
+    {
+        @if (urun.UrunSatistaMi)
+        {
+            <div class="col-6">
+                <div class="card mb-3">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <img src="~/img/@urun.UrunResim" class="img-fluid rounded-start" />
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-text">@urun.UrunBaslik</h5>
+                                <p class="card-text">@urun.UrunAciklama</p>
+                                @if (!urun.UrunSatistaMi)
+                                {
+                                    <p>Satışta değil</p>
+                                }
+                                <button href="#" class="btn btn-primary btn-sm">Detay</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+</div>

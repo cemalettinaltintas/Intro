@@ -7,5 +7,6 @@
         public double UrunFiyat { get; set; }
         public string? UrunResim { get; set; }
         public bool UrunSatistaMi { get; set; }
+        public int StokAdeti { get; set; }
     }
 }

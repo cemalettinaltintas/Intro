@@ -1,4 +1,19 @@
-﻿<h1>Couse/Index</h1>
-<p>
-    Toplam :@ViewData["toplam"]
-</p>
+﻿@model List<Course>
+<div class="d-flex justify-content-lg-between align-items-center">
+    <h3 class="mb-3">Kurslar</h3>
+    <a asp-controller="Course" asp-action="List" class="btn btn-outline-danger">Tüm Kurslar</a>
+</div>
+
+
+
+<div class="row kurslar">
+    @foreach (var kurs in Model)
+    {
+        if (kurs.IsHome)
+        {
+            <div class="col-md-4">
+                @await Html.PartialAsync("_CourseCard",kurs)
+            </div>        
+        } 
+    }
+</div>

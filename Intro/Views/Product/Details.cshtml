@@ -5,9 +5,25 @@
         <img src="/img/@Model.UrunResim" class="img-fluid"/>
     </div>
     <div class="col-8">
+
         <h1>@Model.UrunBaslik</h1>
         <p>@Model.UrunAciklama]</p>
         <p>@Model.UrunFiyat</p>
-        <p>@Model.UrunSatistaMi</p>
+
+        @if (Model.UrunSatistaMi)
+        {
+            @if (Model.StokAdeti>0)
+            {
+                <p class="text-success">Satışta</p>
+            }else
+            {
+                <p class="text-danger">Stok yeterli değil!</p>
+            }
+        }
+        else
+        {
+            <p class="text-warning">Satışta değil!</p>
+        }
+        
     </div>
 </div>
